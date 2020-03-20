@@ -139,18 +139,24 @@ void ConsoleView::displayChoices()
 	} while (!exit_system);
 }
 
-void ConsoleView::displayPurchaseOptions() {
+void ConsoleView::displayPurchaseOptions(vector<string> themes) {
 	string input = "";
 	system("CLS");
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
-	cout << "Please select subscription to purchase: " << endl;
+	cout << "Select a theme to buy: " << endl;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-	cout << "1) Monthly Subscription " << endl;
-	cout << "2) Yearly Subscription " << endl;
+	//display themes
+	for(int i = 0; i < theme.size(); ++i)
+	{
+		cout << i << ": " << theme[i] << endl;
+	}
 	cin >> input;
+	sess.SessionUser.setOrderID(input);
+	/*
 	if (input == "1")
 		sess.SessionUser.setOrderID("Monthly");
 	else if (input == "2")
 		sess.SessionUser.setOrderID("Yearly");
+		*/
 	system("CLS");
 }
