@@ -1,5 +1,6 @@
 #pragma once
 #include "../Domain/User/IUserInterface.h"
+#include <vector>
 using namespace std;
 
 class ConsoleView: public IUserInterface
@@ -15,6 +16,6 @@ public:
 	void changePassword();
 	void createNewUser();
 	void authenticateUser();
-	void displayChoices();
+	void displayChoices(vector<string>);
 	void displayPurchaseOptions();
 };
